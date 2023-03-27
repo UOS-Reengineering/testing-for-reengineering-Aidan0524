@@ -1,5 +1,6 @@
 package example.project.domain;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class Snapshot {
         Snapshot snapshot = (Snapshot) obj;
         return roadType.equals(snapshot.roadType)
                 && weatherCondition.equals(snapshot.weatherCondition)
-                && egoCarPos.equals(snapshot.egoCarPos)
-                && carInFrontPos.equals(snapshot.carInFrontPos);
+                && Arrays.equals(egoCarPos.toArray(), snapshot.egoCarPos.toArray())
+                && Arrays.equals(carInFrontPos.toArray(), snapshot.carInFrontPos.toArray());
     }
+
 }
